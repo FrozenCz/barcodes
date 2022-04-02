@@ -2,7 +2,7 @@
 <div fxFlex>
   <mat-list>
     <mat-list-item *ngFor="let barcode of barcodes">
-      <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="start center" (click)="showCode(barcode)">
+      <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="start center" (click)="showCode(barcode)" style="cursor: pointer;">
         <mat-icon>qr_code</mat-icon>
         <span>{{barcode.name}}</span>
       </div>
