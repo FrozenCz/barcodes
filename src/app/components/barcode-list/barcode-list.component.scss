@@ -1,0 +1,43 @@
+:host{
+  display: flex;
+  flex-direction: column;
+}
+
+mat-icon.onOff{
+  color: #e54141
+}
+
+mat-icon.green {
+  color: #3ebd3e;
+}
+.hider {
+  background: rgba(0,0,0,0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.cardContainer {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+mat-card {
+  width: 30rem;
+  height: 20rem;
+}
+mat-card-title {
+  color: white;
+  background-color: #3f51b5;
+  padding: 1rem
+}

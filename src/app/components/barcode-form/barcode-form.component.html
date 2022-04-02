@@ -1,0 +1,12 @@
+<div fxLayout="row" fxFlex fxLayoutGap="1rem" fxLayoutAlign="start center">
+  <mat-form-field fxFlex>
+    <mat-label>Nové jméno</mat-label>
+    <input matInput [(ngModel)]="newName">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="submit()" [disabled]="newName.length < 5">
+    <mat-icon>save</mat-icon>
+    Uložit
+  </button>
+</div>
+
+
