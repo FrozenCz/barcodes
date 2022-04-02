@@ -17,6 +17,8 @@ import {FormsModule} from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {QRCodeModule} from 'angularx-qrcode';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatDividerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    QRCodeModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

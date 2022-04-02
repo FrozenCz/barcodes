@@ -2,3 +2,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button[mat-stroked-button].mat-stroked-button{
+  padding: .5rem 1rem;
+}
+
+
+.toast{
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  padding: .7rem 2rem .7rem 1.5rem;
+  color: white;
+  background: linear-gradient(#8d9df3 0, #5266d9 3%, #3f51b5 20%, #3f51b5 95%, #050a3b 100%);
+  box-shadow: 0px 4px 3px -2px rgba(0,0,0,0.7);
+  border: 1px solid #1e2c77;
+  &.success {
+    background: linear-gradient(#8df38f 0, #52d954 3%, #47b53f 20%, #47b53f 95%, #164913 100%);
+    border: 1px solid #1e2c77;
+
+  }
+}

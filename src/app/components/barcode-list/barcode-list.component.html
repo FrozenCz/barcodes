@@ -1,3 +1,4 @@
+
 <div fxFlex>
   <mat-list>
     <mat-list-item *ngFor="let barcode of barcodes">
@@ -10,7 +11,6 @@
   </mat-list>
 </div>
 
-
 <div *ngIf="codeShowing" class="cardContainer" [@dialogAnim]="'in'">
   <div class="hider" (click)="codeShowing=null"></div>
   <mat-card fxLayout="column">
@@ -18,12 +18,18 @@
       <mat-icon>qr_code</mat-icon>
       <span>{{codeShowing.name}}</span>
       </mat-card-title>
-    <mat-card-content fxFlex></mat-card-content>
-    <mat-card-actions>
-      <button mat-flat-button (click)="codeShowing=null">
+    <mat-card-content fxFlex>
+      <qrcode [qrdata]="codeShowingJSOn"
+              [errorCorrectionLevel]="'M'" [width]="450" ></qrcode>
+<!--      <qrcode [qrdata]="codeShowingJSOn" [width]="10"-->
+<!--              [errorCorrectionLevel]="'M'" [scale]="2"></qrcode>-->
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
+      <button mat-stroked-button (click)="codeShowing=null" color="primary">
         <mat-icon>close</mat-icon>
         Zavřít
       </button>
     </mat-card-actions>
   </mat-card>
 </div>
+

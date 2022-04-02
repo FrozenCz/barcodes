@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 
+
 mat-icon.onOff{
   color: #e54141
 }
@@ -20,6 +21,7 @@ mat-icon.green {
 }
 
 .cardContainer {
+  z-index: 3;
   opacity: 0;
   display: flex;
   flex-direction: column;
@@ -33,8 +35,7 @@ mat-icon.green {
 }
 
 mat-card {
-  width: 30rem;
-  height: 20rem;
+
 }
 mat-card-title {
   color: white;

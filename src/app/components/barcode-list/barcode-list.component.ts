@@ -23,6 +23,8 @@ import {animate, query, state, style, transition, trigger} from '@angular/animat
 export class BarcodeListComponent implements OnInit {
   @Input() barcodes: Barcode[] = [];
   codeShowing: Barcode | null = null;
+  codeShowingJSOn: string = '';
+
 
   constructor() {
   }
@@ -30,7 +32,12 @@ export class BarcodeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   showCode(barcode: Barcode): void {
+    this.codeShowingJSOn = JSON.stringify(barcode);
     this.codeShowing = barcode
   }
+
+
 }

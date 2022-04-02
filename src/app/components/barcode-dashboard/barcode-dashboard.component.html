@@ -1,4 +1,18 @@
+<div class="icons" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1rem">
+  <button mat-icon-button matTooltip="Vše označí jako, že nenalezeno" (click)="reset()">
+    <mat-icon>clear_all</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Znovu načte data ze serveru" (click)="fetchCodes(true)">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>
+
+
 <app-barcode-form (emitnew)="downloadList()"></app-barcode-form>
 <mat-divider></mat-divider>
 <app-barcode-list [barcodes]="barcodes"></app-barcode-list>
 
+<div *ngIf="toastMessage" class="toast" [ngClass]="toastClass" [@toastAnim]="'in'" fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="start center">
+  <mat-icon>help_outline</mat-icon>
+  <span>{{toastMessage}}</span>
+</div>

@@ -21,6 +21,7 @@ export class BarcodeFormComponent implements OnInit {
     this.barcodeService.createBarcode(this.newName)
       .pipe(take(1))
       .subscribe(() => {
+        this.newName = '';
         this.emitnew.emit();
       }, (err: any) => {
         console.log(err);

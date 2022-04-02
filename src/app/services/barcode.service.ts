@@ -15,10 +15,14 @@ export class BarcodeService {
   }
 
   getBarcodes(): Observable<Barcode[]> {
-    return this.httpClient.get<Barcode[]>('http://barcodes-rest.milanknop.cz/barcodes');
+    return this.httpClient.get<Barcode[]>('https://barcodes-rest.milanknop.cz/barcodes');
   }
 
   createBarcode(newName: string): Observable<Barcode> {
-    return this.httpClient.post<Barcode>('http://barcodes-rest.milanknop.cz/barcode', {name: newName})
+    return this.httpClient.post<Barcode>('https://barcodes-rest.milanknop.cz/barcode', {name: newName})
+  }
+
+  reset(): Observable<void> {
+    return this.httpClient.get<void>('https://barcodes-rest.milanknop.cz/barcodes/reset');
   }
 }
