@@ -6,7 +6,7 @@
         <mat-icon>qr_code</mat-icon>
         <span>{{barcode.name}}</span>
       </div>
-      <mat-icon class="onOff" [ngClass]="{'green':barcode.found}">circle</mat-icon>
+      <mat-icon [matTooltip]="barcode.found ? 'Nalezeno' : 'Nenalezeno' " class="onOff" [ngClass]="{'green':barcode.found}">circle</mat-icon>
     </mat-list-item>
   </mat-list>
 </div>
