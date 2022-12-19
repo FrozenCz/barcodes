@@ -1,0 +1,10 @@
+<div fxFlex>
+  <mat-list>
+    <mat-list-item *ngFor="let location of locations">
+      <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="start center" style="cursor: pointer;">
+        <mat-icon>qr_code</mat-icon>
+        <span>{{location.name}}</span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {Barcode} from '../models/barcode.model';
 
 
@@ -8,10 +8,15 @@ import {Barcode} from '../models/barcode.model';
   providedIn: 'root'
 })
 export class BarcodeService {
+  test$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) {
 
 
+  }
+
+  getTest(): Observable<boolean> {
+    return this.test$.asObservable()
   }
 
   getBarcodes(): Observable<Barcode[]> {

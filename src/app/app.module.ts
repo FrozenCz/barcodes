@@ -19,13 +19,19 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {QRCodeModule} from 'angularx-qrcode';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { LocationsDashboardComponent } from './components/locations-dashboard/locations-dashboard.component';
+import { LocationsFormComponent } from './components/locations-form/locations-form.component';
+import { LocationsListComponent } from './components/locations-list/locations-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BarcodeDashboardComponent,
     BarcodeListComponent,
-    BarcodeFormComponent
+    BarcodeFormComponent,
+    LocationsDashboardComponent,
+    LocationsFormComponent,
+    LocationsListComponent
   ],
   imports: [
     BrowserModule,

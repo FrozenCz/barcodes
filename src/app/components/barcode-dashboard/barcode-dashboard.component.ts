@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Barcode} from '../../models/barcode.model';
 import {BarcodeService} from '../../services/barcode.service';
 import {take} from 'rxjs';
@@ -28,7 +28,7 @@ export class BarcodeDashboardComponent implements OnInit {
   timer: any | null = null;
   toastClass: string = 'basic';
 
-  constructor(private barcodeService: BarcodeService) {
+  constructor(private barcodeService: BarcodeService, private changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {

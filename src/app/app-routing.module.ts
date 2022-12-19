@@ -1,9 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BarcodeDashboardComponent} from './components/barcode-dashboard/barcode-dashboard.component';
+import {LocationsDashboardComponent} from './components/locations-dashboard/locations-dashboard.component';
 
 const routes: Routes = [
-    {path: '', pathMatch: 'full', component: BarcodeDashboardComponent}
+    {path: '', pathMatch: 'full', component: BarcodeDashboardComponent},
+    {path: 'locations', component: LocationsDashboardComponent}
   ]
 ;
 

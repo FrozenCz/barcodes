@@ -1,7 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
-    <mat-icon>qr_code</mat-icon>
-    <h1>Barcodes - Milan Knop @ uhk 2022 - Úvod do mobilních technologií</h1>
+    <a [routerLink]="['/']" mat-button [routerLinkActive]="'active'" [routerLinkActiveOptions]="{'exact':true}" >Věci</a>
+    <a [routerLink]="['/locations']"  [routerLinkActive]="'active'"  mat-button>Umístění</a>
+
   </mat-toolbar-row>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<router-outlet fxFlex style="overflow: auto;"></router-outlet>
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+    <mat-icon>qr_code</mat-icon>
+    <h2>Barcodes - Milan Knop @ uhk 2022 - Smart přístupy k tvorbě IS a aplikací</h2>
+  </mat-toolbar-row>
+</mat-toolbar>
