@@ -1,8 +1,10 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Barcode} from '../../models/barcode.model';
 import {BarcodeService} from '../../services/barcode.service';
-import {take} from 'rxjs';
+import {combineLatest, firstValueFrom, take} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {LocationModel} from '../../models/locationModel';
+import {$e} from '@angular/compiler/src/chars';
 
 @Component({
   selector: 'app-barcode-dashboard',
@@ -19,11 +21,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
     transition('*=>void', [
       animate(200, style({transform: 'translateX(100px)', opacity: 0}))
     ])
-])]
+  ])]
 })
 
 export class BarcodeDashboardComponent implements OnInit {
   barcodes: Barcode[] = [];
+  locations: LocationModel[] = [];
   toastMessage: string | null = null;
   timer: any | null = null;
   toastClass: string = 'basic';
@@ -40,13 +43,13 @@ export class BarcodeDashboardComponent implements OnInit {
   }
 
   fetchCodes(info?: boolean): void {
-    this.barcodeService.getBarcodes()
-      .pipe(take(1))
-      .subscribe(bs => {
+    firstValueFrom(combineLatest([this.barcodeService.getBarcodes(), this.barcodeService.getLocations()]))
+      .then(([bs, locations]) => {
         if (info) {
           this.showToaster('Data byla stažena', 'success');
         }
         this.barcodes = bs;
+        this.locations = locations;
       })
   }
 
@@ -67,5 +70,9 @@ export class BarcodeDashboardComponent implements OnInit {
       this.showToaster('Resetováno', '');
       this.fetchCodes();
     });
+  }
+
+  onDeleteEmitted($event: Barcode): void {
+    firstValueFrom(this.barcodeService.deleteBarcode($event)).then(() => this.fetchCodes());
   }
 }

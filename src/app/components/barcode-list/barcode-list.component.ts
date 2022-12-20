@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Barcode} from '../../models/barcode.model';
 import {animate, query, state, style, transition, trigger} from '@angular/animations';
+import {LocationModel} from '../../models/locationModel';
 
 @Component({
   selector: 'app-barcode-list',
@@ -20,24 +21,19 @@ import {animate, query, state, style, transition, trigger} from '@angular/animat
     ])
   ])]
 })
-export class BarcodeListComponent implements OnInit {
+export class BarcodeListComponent {
   @Input() barcodes: Barcode[] = [];
+  @Input() locations: LocationModel[] = [];
+  @Output() emitDelete: EventEmitter<Barcode> = new EventEmitter<Barcode>();
   codeShowing: Barcode | null = null;
   codeShowingJSOn: string = '';
-
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
-
 
   showCode(barcode: Barcode): void {
     this.codeShowingJSOn = JSON.stringify(barcode);
     this.codeShowing = barcode
   }
 
-
+  deleteBarcode(barcode: Barcode): void {
+    this.emitDelete.emit(barcode);
+  }
 }

@@ -22,6 +22,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { LocationsDashboardComponent } from './components/locations-dashboard/locations-dashboard.component';
 import { LocationsFormComponent } from './components/locations-form/locations-form.component';
 import { LocationsListComponent } from './components/locations-list/locations-list.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -33,23 +34,24 @@ import { LocationsListComponent } from './components/locations-list/locations-li
     LocationsFormComponent,
     LocationsListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    FlexModule,
-    HttpClientModule,
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatListModule,
-    MatCardModule,
-    QRCodeModule,
-    MatTooltipModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        FlexModule,
+        HttpClientModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatListModule,
+        MatCardModule,
+        QRCodeModule,
+        MatTooltipModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,12 +1,28 @@
-
 <div fxFlex>
   <mat-list>
     <mat-list-item *ngFor="let barcode of barcodes">
-      <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="start center" (click)="showCode(barcode)" style="cursor: pointer;">
-        <mat-icon>qr_code</mat-icon>
-        <span>{{barcode.name}}</span>
+      <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="space-between center" style="cursor: pointer;">
+        <div (click)="showCode(barcode)" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".5rem">
+          <mat-icon>qr_code</mat-icon>
+          <span>{{barcode.name}}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1rem">
+          <mat-form-field>
+            <mat-select>
+              <mat-option *ngFor="let location of locations" [value]="location">{{location.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-icon [matTooltip]="barcode.found ? 'Nalezeno' : 'Nenalezeno' " class="onOff"
+                    [ngClass]="{'green':barcode.found}">circle
+          </mat-icon>
+          <button mat-icon-button (click)="deleteBarcode(barcode)">
+            <mat-icon [matTooltip]="'Smazat?'" color="accent">delete_forever</mat-icon>
+          </button>
+
+        </div>
       </div>
-      <mat-icon [matTooltip]="barcode.found ? 'Nalezeno' : 'Nenalezeno' " class="onOff" [ngClass]="{'green':barcode.found}">circle</mat-icon>
+
     </mat-list-item>
   </mat-list>
 </div>
@@ -17,15 +33,15 @@
     <mat-card-title fxLayout="row" fxLayoutGap=".5rem" fxLayoutAlign="start center">
       <mat-icon>qr_code</mat-icon>
       <span>{{codeShowing.name}}</span>
-      </mat-card-title>
+    </mat-card-title>
     <mat-card-content fxFlex>
       <qrcode [qrdata]="codeShowingJSOn"
-              [errorCorrectionLevel]="'M'" [width]="450" ></qrcode>
-<!--      <qrcode [qrdata]="codeShowingJSOn" [width]="10"-->
-<!--              [errorCorrectionLevel]="'M'" [scale]="2"></qrcode>-->
+              [errorCorrectionLevel]="'M'" [width]="450"></qrcode>
+      <!--      <qrcode [qrdata]="codeShowingJSOn" [width]="10"-->
+      <!--              [errorCorrectionLevel]="'M'" [scale]="2"></qrcode>-->
     </mat-card-content>
     <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
-      <button mat-button (click)="codeShowing=null" >
+      <button mat-button (click)="codeShowing=null">
         <mat-icon>close</mat-icon>
         Zavřít
       </button>
