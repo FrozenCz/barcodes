@@ -1,2 +1,2 @@
-<app-locations-form></app-locations-form>
-<app-locations-list fxFlex></app-locations-list>
+<app-locations-form (emitnew)="downloadList()"></app-locations-form>
+<app-locations-list fxFlex [locations]="locations"></app-locations-list>

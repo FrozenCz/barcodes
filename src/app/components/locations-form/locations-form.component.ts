@@ -19,7 +19,7 @@ export class LocationsFormComponent implements OnInit {
   }
 
   submit(): void {
-    this.barcodeService.createBarcode(this.newName)
+    this.barcodeService.createLocation(this.newName)
       .pipe(take(1))
       .subscribe(() => {
         this.newName = '';

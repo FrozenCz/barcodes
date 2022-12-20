@@ -1,4 +1,4 @@
-export interface LocationsModel {
+export interface LocationModel {
   uuid: string;
   name: string;
 }

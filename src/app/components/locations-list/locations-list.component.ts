@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LocationsModel} from '../../models/locations.model';
+import {LocationModel} from '../../models/locationModel';
 
 @Component({
   selector: 'app-locations-list',
@@ -7,7 +7,7 @@ import {LocationsModel} from '../../models/locations.model';
   styleUrls: ['./locations-list.component.scss']
 })
 export class LocationsListComponent implements OnInit {
-  @Input() locations: LocationsModel[] = [];
+  @Input() locations: LocationModel[] = [];
 
   constructor() { }
 
