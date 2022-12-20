@@ -25,6 +25,7 @@ export class BarcodeListComponent {
   @Input() barcodes: Barcode[] = [];
   @Input() locations: LocationModel[] = [];
   @Output() emitDelete: EventEmitter<Barcode> = new EventEmitter<Barcode>();
+  @Output() emitLocationChanged: EventEmitter<{locationUuid: string, barcodeId: number}> = new EventEmitter();
   codeShowing: Barcode | null = null;
   codeShowingJSOn: string = '';
 
@@ -36,4 +37,9 @@ export class BarcodeListComponent {
   deleteBarcode(barcode: Barcode): void {
     this.emitDelete.emit(barcode);
   }
+
+  onLocationChanged(barcodeId: number, locationUuid: string): void {
+    this.emitLocationChanged.emit({barcodeId, locationUuid})
+  }
+
 }

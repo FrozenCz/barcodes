@@ -27,7 +27,12 @@ export class LocationsFormComponent implements OnInit {
       }, (err: any) => {
         console.log(err);
       })
+  }
 
+  onKeyup($event: KeyboardEvent): void {
+    if ($event.key === 'Enter' && this.newName.length > 4) {
+      this.submit();
+    }
   }
 
 }

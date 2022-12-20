@@ -14,7 +14,9 @@
 
 <app-barcode-form (emitnew)="downloadList()"></app-barcode-form>
 <mat-divider></mat-divider>
-<app-barcode-list [barcodes]="barcodes" [locations]="locations" (emitDelete)="onDeleteEmitted($event)"></app-barcode-list>
+<app-barcode-list [barcodes]="barcodes" [locations]="locations"
+                  (emitLocationChanged)="onLocationChanged($event)"
+                  (emitDelete)="onDeleteEmitted($event)"></app-barcode-list>
 
 <div *ngIf="toastMessage" class="toast" [ngClass]="toastClass" [@toastAnim]="'in'" fxLayout="row" fxLayoutGap="1rem"
      fxLayoutAlign="start center">

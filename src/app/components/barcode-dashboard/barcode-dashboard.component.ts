@@ -1,10 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Barcode} from '../../models/barcode.model';
 import {BarcodeService} from '../../services/barcode.service';
-import {combineLatest, firstValueFrom, take} from 'rxjs';
+import {combineLatest, firstValueFrom} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {LocationModel} from '../../models/locationModel';
-import {$e} from '@angular/compiler/src/chars';
 
 @Component({
   selector: 'app-barcode-dashboard',
@@ -74,5 +73,9 @@ export class BarcodeDashboardComponent implements OnInit {
 
   onDeleteEmitted($event: Barcode): void {
     firstValueFrom(this.barcodeService.deleteBarcode($event)).then(() => this.fetchCodes());
+  }
+
+  onLocationChanged($event: {locationUuid: string; barcodeId: number}) {
+    firstValueFrom(this.barcodeService.setLocation($event.barcodeId, $event.locationUuid)).then(() => this.fetchCodes());
   }
 }

@@ -1,7 +1,9 @@
+import {LocationModel} from './locationModel';
 
 
 export interface Barcode {
   id: number;
   name: string;
-  found: boolean
+  found: boolean;
+  Location: LocationModel | null;
 }

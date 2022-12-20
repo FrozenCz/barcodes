@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {Barcode} from '../models/barcode.model';
 import {LocationModel} from '../models/locationModel';
 import {restUrl} from '../../environments/environment';
-import {$e} from '@angular/compiler/src/chars';
 
 
 @Injectable({
@@ -20,11 +19,15 @@ export class BarcodeService {
   }
 
   createBarcode(newName: string): Observable<Barcode> {
-    return this.httpClient.post<Barcode>(restUrl + '/barcode', {name: newName})
+    return this.httpClient.post<Barcode>(restUrl + '/barcodes', {name: newName})
   }
 
   reset(): Observable<void> {
     return this.httpClient.get<void>(restUrl + '/barcodes/reset');
+  }
+
+  setLocation(barcodeId: number, locationUuid: string): Observable<LocationModel> {
+    return this.httpClient.patch<LocationModel>(restUrl + '/barcodes/' + barcodeId, {locationUuid})
   }
 
   getLocations(): Observable<LocationModel[]> {
@@ -36,6 +39,8 @@ export class BarcodeService {
   }
 
   deleteBarcode($event: Barcode): Observable<void> {
-    return this.httpClient.delete<void>(restUrl + '/barcode/' + $event.id);
+    return this.httpClient.delete<void>(restUrl + '/barcodes/' + $event.id);
   }
+
+
 }

@@ -29,4 +29,9 @@ export class BarcodeFormComponent implements OnInit {
 
   }
 
+  onKeyup($event: KeyboardEvent): void {
+    if ($event.key === 'Enter' && this.newName.length > 4) {
+      this.submit();
+    }
+  }
 }
