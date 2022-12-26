@@ -43,4 +43,7 @@ export class BarcodeService {
   }
 
 
+  saveNfc(locationModel: LocationModel): Observable<void> {
+    return this.httpClient.patch<void>(restUrl + '/locations/' + locationModel.uuid, {nfcId: locationModel.nfcId});
+  }
 }

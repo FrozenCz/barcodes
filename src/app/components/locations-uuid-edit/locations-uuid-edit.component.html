@@ -1,0 +1,22 @@
+<div *ngIf="locationModel; else dataNotProvided">
+      <div mat-dialog-title>{{locationModel.name}}</div>
+      <div mat-dialog-title style="font-size: 80%; margin-top: -30px;">{{locationModel.uuid}}</div>
+
+      <div mat-dialog-content>
+        <mat-form-field >
+          <input matInput [(ngModel)]="locationModel.nfcId" (keyup)="onKeyUp($event, locationModel)">
+        </mat-form-field>
+      </div>
+
+  <div mat-dialog-actions>
+    <button mat-flat-button color="primary" class="mat-background-primary" (click)="saveNfcId(locationModel)">Uložit</button>
+  </div>
+
+
+
+
+</div>
+
+<ng-template #dataNotProvided>
+  please provide locationModel data
+</ng-template>

@@ -1,6 +1,6 @@
 <div fxFlex>
   <mat-list>
-    <mat-list-item *ngFor="let location of locations">
+    <mat-list-item *ngFor="let location of locations" (click)="openDialog(location)">
       <div fxFlex fxLayoutGap=".5rem" fxLayoutAlign="start center" style="cursor: pointer;">
         <mat-icon>room</mat-icon>
         <span>{{location.name}}</span>
