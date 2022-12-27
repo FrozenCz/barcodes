@@ -3,4 +3,4 @@ export const environment = {
 };
 
 
-export const restUrl = 'https://barcodes-rest.milanknop.cz';
+export const restUrl = 'https://smap-rest.milanknop.cz';
