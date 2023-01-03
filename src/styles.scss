@@ -44,3 +44,19 @@ button[mat-stroked-button].mat-stroked-button{
 ::-webkit-scrollbar-thumb:hover {
   background: #C2185B;
 }
+
+
+@media print {
+  mat-toolbar {
+    display: none !important;
+  }
+  * {
+    color: black !important;
+    background-color: white !important;
+    overflow:visible !important;
+  }
+
+  div.qr-print div:nth-child(12n) {
+    page-break-after: always;
+  }
+}

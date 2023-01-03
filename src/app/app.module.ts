@@ -26,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {LocationsUuidEditComponent} from './components/locations-uuid-edit/locations-uuid-edit.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { QrCodeListComponent } from './components/qr-code-list/qr-code-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     LocationsDashboardComponent,
     LocationsFormComponent,
     LocationsListComponent,
-    LocationsUuidEditComponent
+    LocationsUuidEditComponent,
+    QrCodeListComponent
   ],
   imports: [
     BrowserModule,
