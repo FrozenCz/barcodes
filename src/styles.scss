@@ -7,6 +7,8 @@ button[mat-stroked-button].mat-stroked-button{
 }
 
 
+
+
 .toast{
   position: fixed;
   right: 1rem;
@@ -21,4 +23,24 @@ button[mat-stroked-button].mat-stroked-button{
     border: 1px solid #1e2c77;
 
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #727272;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #C2185B;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #C2185B;
 }

@@ -1,6 +1,5 @@
 import {LocationModel} from './locationModel';
 
-
 export interface Barcode {
   id: number;
   name: string;
