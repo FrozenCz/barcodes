@@ -30,7 +30,7 @@ export class BarcodeListComponent {
   codeShowingJSOn: string = '';
 
   showCode(barcode: Barcode): void {
-    this.codeShowingJSOn = JSON.stringify(barcode);
+    this.codeShowingJSOn = JSON.stringify({id: barcode.id});
     this.codeShowing = barcode
   }
 

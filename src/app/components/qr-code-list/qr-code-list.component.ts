@@ -21,6 +21,6 @@ export class QrCodeListComponent implements OnInit {
 
 
   codeShowingJSOn(barcode: Barcode): string {
-    return JSON.stringify(barcode);
+    return JSON.stringify({id: barcode.id});
   }
 }
